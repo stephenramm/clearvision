@@ -1,0 +1,747 @@
+= ClearVision Bugs and Issues in development
+Stephen Ramm, <steve.ramm@imgtec.com>
+V1.0,  8 June 2017
+:doctype: article
+:encoding: utf-8
+:lang: en
+:toc: left
+:numbered:
+:source-highlighter: pygments
+:pygments-linenums-mode: inline
+:icons: font
+:tick: &#10004;
+
+== Bugs
+.FIXED
+- insert stuff does not put things in Xref, so fail on expansion - fixed
+-- makePyramid
+-- makeObjectArray
+-- changeSTUFF()
+- insertImage line 1052 'ref' is not defined - fixed
+-- got from inserting objectarray of pyramids - Fixed
+- insert data menu does not seem to work from mouse - Can't verify
+- Merging objects eg image and roi can create an object with too many attributes
+- Can't remove nodes with immutable data (because immutable data can't be deleted!)
+
+.TODO
+- Able to make an element of a delay virtual
+- Issue with making child objects virtual - misreporting - just wrong
+- Able to merge immutable data - should not be possible?
+- Need to be able to handle properties for objects like graph parameters
+- Need to get order of attributes consistent - refactor the property update thing
+
+== Immutable data to be attributes of a node and nothing else
+- Add node parameters to Xref marked as immutable
+- Never create AGraph nodes or edges for immutable data
+- immutable data is always scalar
+
+DONE
+
+== Multiple select
+- Possible useful feature
+-- Allow shift left-click to do multiple select
+-- introduce a select menu option + key (Alt-S?)
+-- ctrl-A with usual function of select all
+-- Then we can have cut, copy, paste
+
+== Refactor
+- Make all of bG in class Xref
+- Dissociate AGraph building:
+-- Build xref structure when reading xml
+-- Build AGraphs from xref and xml
+- All operations to patch xref along with xml so this doesn't have to be rebuilt
+- Should fix some issues with labelling varying!
+- Roll xml image and tensor data removal into this change
+-- Requires saving xml to load the data from file
+- Save, Redo and Undo must now operate on xref as well as xml
+-- Operations to be removed into Xref class.
+- Make kdefs into a class also - DONE
+- Make ddefs into a class - DONE
+
+TODO
+
+== Restrict various things in Context
+- Property values
+-- Channel of image from channel according to parent image format
+-- start, end of ROI according to parent image size
+
+TODO
+
+== Show tool-tips
+- Properties of the object under the mouse without selecting it
+
+TODO
+
+== cvxDataDefs
+. Finish tables
+. Constants for each string to reduce size and increase efficiency
+
+== cvxKernelDefs
+=== Default values for parameters
+=== Many TODOs in the conditionals strings
+
+== Context menu
+- from mouse right-click DONE
+- from key DONE
+
+== Load Data
+- Tries to load the data without changing attributes. In the case of xml, if tags don't match, then option to change format or change data to fit. For images if there is too little or too much data for the image size, option to either change image size or use as much or little of the data as possible.
+- Files are loaded at exit/save or execute time, i.e. when the xml is written out.
+- Data is *not* loaded unless the data object has readers. ??
+
+.Formats:
+- xml (for everything, use same definition, tostring & fromstring)
+- csv (not for images?) does not include attributes but some may be implied by line formatting
+- image format available in image class. Convert the available pixel data to the format specified by the attributes.
+
+=== vx_delay
+Nothing
+
+=== vx_lut
+- we load a file into the xml upon exit. Produce a warning only if data does not match (too much, too little, wrong type) but coerce it to fit
+- Support csv and xml.
+
+=== vx_distribution
+- we load a file into the xml upon exit. Produce a warning only if data does not match (too much, too little, wrong type) but coerce it to fit
+- Support csv and xml.
+
+=== vx_pyramid
+?
+
+=== vx_threshold
+Nothing
+
+=== vx_matrix
+- we load a file into the xml upon exit. Produce a warning only if data does not match (too much, too little, wrong type) but coerce it to fit
+- Support csv and xml.
+- cvs is rows (lines) and columns. Ignore excess data, pad with zeroes, but raise warning. Use type as per attributes, warn on mis-match.
+
+=== vx_convolution
+- we load a file into the xml upon exit. Produce a warning only if data does not match (too much, too little) but coerce it to fit
+- Support csv and xml.
+- cvs is rows (lines) and columns. Ignore excess data, pad with zeroes, but raise warning.
+
+=== vx_scalar
+Nothing
+
+=== vx_array
+- ? Use what we have presently - no load of data
+- at least support xml?
+
+=== vx_image
+- Support image files only, they are loaded at exit. Make image match attributes for format and size.
+- Options to crop/pad or stretch/squash.
+- crop/pad can be TL, TR, BL, BR or centre, anf padding will be black.
+- strech/squash is done as required in each direction.
+
+=== vx_remap
+- Support xml and csv.
+- csv has a pair of src_x, src_y floats for each location, so width is twice destination width. Zero-based and if not complete will be padded by replication.
+- xml is simply a series of <point> elements
+
+=== vx_object_array
+?
+
+=== vx_tensor
+- Support NNEF tensor file format
+- Support image files with same options as for images (allows GIF & TIFF with multiple images)
+- Support csv as a series of sets of correct number of lines (rows) each of the correct number of numbers (columns)
+
+== Save Data
+- Stores data only, not attributes
+- Supports same formats as load data
+- Removes the data from the xml object
+
+=== vx_delay
+=== vx_lut
+=== vx_distribution
+=== vx_pyramid
+=== vx_threshold
+=== vx_matrix
+=== vx_convolution
+=== vx_scalar
+=== vx_array
+=== vx_image
+=== vx_remap
+=== vx_object_array
+=== vx_tensor
+
+== Dialogs
+=== Node properties
+- Name - DONE
+- Replicated - DONE via menu/mouse/keystroke
+- Border mode - DONE
+- Border mode constant value -almost, need editor/cell value thingies DONE
+
+DONE
+
+=== Data properties
+
+TODO
+
+==== Array
+- need to be able to display & edit data DONE
+- need to get enum type from kernel parameter and have drop-down DONE
+- need to establish limits for values ??
+- need to identify immutable data and prevent type from being changed DONE
+- need to handle struct types DONE
+- what about user structs? DONE
+
+DONE
+
+==== Convolution
+- need to be able to display & edit data
+- need to establish limits for values
+- Load from file (on exit)
+
+DONE
+
+
+==== Distribution
+DONE
+
+==== Image
+- format selection - DONE
+- width and height - DONE
+- need to handle uniform Images
+- Load image from file (on exit)
+- Store image to file (now)
+TODO
+
+==== Uniform image
+TODO
+
+==== LUT
+Mostly DONE
+
+- Need to handle data
+- Load from file (on exit)
+TODO
+
+==== Matrix
+- need to be able to display & edit data DONE
+- for specific matrices (warp nodes) get dimensions from node TODO
+- need to establish limits for values ??
+- need to handle matrix from pattern DONE
+- user patterns also ??
+
+mostly DONE
+
+==== Object array
+DONE
+
+=== Object Array children
+DONE
+
+==== Pyramid
+- format, width, height, levels - DONE
+- scale - need drop-down to select half or orb - DONE
+
+DONE
+
+=== Pyramid children
+DONE
+
+==== Remap
+
+DONE
+
+==== Scalar
+- need to be able to set data DONE
+- need to get enum type from kernel parameter and have drop-down DONE
+- need to establish limits for values ??
+- need to identify immutable data and prevent type from being changed DONE
+- need to handle struct types DONE
+- what about user structs? DONE
+
+DONE
+
+==== Tensor
+Mostly done
+
+- Need to handle views
+
+TODO
+
+==== Threshold
+TODO
+
+==== Delay
+DONE
+
+==== Delay children
+DONE
+
+=== Graph properties
+- Name - DONE
+
+=== Settings
+- Use JSON format
+- Extra kernel definitions
+- Default orientation
+- Default DPI
+- Default for "show connected data"
+- Colours?
+- Shapes?
+- Styles?
+
+TODO.
+
+== Allow draw direction to be set by menu
+View menu orientation TB, LR, BT, RL
+
+DONE.
+
+== Default data objects - generate attributes appropriately
+
+TODO
+
+== Insert data objects
+- Accelerator for pop-up menu (SHIFT-INS) DONE
+- Ask for type and number of objects in delay and object array DONE
+- Array, Convolution, Distribution, Image, LUT, Matrix, Pyramid, remap, scalar, tensor, threshold - DONE
+- Delay of..., object array of, pyramid of - DONE
+- Uniform Image - TODO
+- ROI - DONE
+- CHANNEL - TODO - Image object array from Tensor - DONE
+- View - TODO
+
+TODO
+
+== Insert non-standard node
+- Need some way to define new kernels, and load/save them
+
+TODO
+
+== Make local connected objects visible/invisible
+A 'rebuild' function
+Global flag to show/hide 'virtuals'
+Local property to show or hide on a case-by-case basis (always show this object) that is set for parents and children
+
+DONE.
+
+== Merging data objects
+Needs to be more intelligent, for example when attributes differ.
+- Images with zero width or height
+- Images with format virtual
+- Or do we just use attributes of the source?
+
+DONE.
+
+=== Extensive testing and fixing of merge
+TODO
+
+== Remove graph parameter
+- To remove, select parameter and delete.
+- If the graph parameter is at the output or input of a copy node, then remove the copy node.
+
+DONE.
+
+Removal of copy node taken out as this is confusing functionality.
+
+DONE.
+
+== Add graph parameter
+- A data object is selected
+- Exactly one graph parameter is inserted for the first connected node found
+- If no connected node found, an error is shown
+
+DONE.
+
+== Toggle virtual
+DONE
+
+Note that if this is done on an unconnected global data object it will delete it
+
+=== Better toggle virtual for non-virtual data
+- Cannot make virtual if referenced in more than one graph
+- Cannot make virtual if referenced in no graphs
+- Actually move to the graph where it is reference
+
+DONE
+
+== Select
+This has to be left, right, up, down keys
+Can we do multiple select like this - using shift key?
+
+DONE:
+- left, right, up down select the first object (green)
+- with shift, select the next object (red)
+- If there was no selected object, choose the most appropriate at the start. For the second selected object,
+this is the first selected object and vice-versa.
+- If the newly selected object is not visible, scroll to make it visible.
+
+The algorithm for move left (as an example) is to find the nearest object that is completely to the left.
+
+== Delete graph
+DONE.
+
+== Delete data objects
+ - if not connected, remove data object
+ - immutable data can't be deleted
+ - non-virtual connected data simply becomes virtual
+
+DONE
+
+.what remains unaffected by delete data:
+ - All connections
+ - Immutable data
+ - Connected virtual data
+
+DONE
+
+.what is always affected by delete data:
+ - unconnected data objects
+ - non-virtual, mutable data
+
+DONE
+
+== Disconnect/unmerge data
+ - there must be more than one connection to the data object, or the action is ignored
+ - One connection is nominated as the 'original'. If there is a writer, then this is it. Otherwise it is just the first encountered connection.
+ - For each of the other connections, replicate a new virtual data object with the same characteristics and connect that instead.
+
+DONE - along with delete data
+
+== Connect via menu
+Can only work with multiple select
+
+DONE
+
+== Disconnect node
+for each parameter:
+ - disconnect data object
+
+DONE - along with delete node
+
+== Delete node
+DONE.
+
+== Insert new graph in cvxMain
+DONE.
+
+== Automatic scrolling
+DONE
+
+== Scroll with mouse wheel and pageUp/Dn
+- Mouse wheel DONE.
+- PageUp/Down DONE.
+
+== Improve refresh by only updating part of view?
+DONE.
+
+== Zoom in and out
+DONE
+
+== Save current view as...
+Draw the graph to a file - DONE
+
+== Undo
+.Possible strategies
+. keep a list of actions performed upon the xml tree
+.. Ditch the dot graphs and remake them on Undo
+.. Also list the dot graph actions and undo those (most complex option).
+. Keep a set of modified copies of the xml input
+.. Would have an issue if there is a lot of data stored
+.. Undo operation would then be similar to revert, but would load one of the backup copies
+.. This is the simplest option, but has performance issues even during normal operation
+. Keep a set of diffs of the xml input
+.. Not sure how this is done, or how it is different to the first strategy
+
+DONE - using the simplest strategy of saving the entire xml tree and rebuilding everything on undo/redo
+(Performance issues with large graphs or with much data)
+
+== Revert (i.e. reject changes and re-open file)
+DONE.
+
+== Show data relationships on graph pages as well?
+- Another checkbox in the view menu...
+- note that we currently do show all the structure of virtuals - we have to, they are shown nowhere else, but maybe we want to
+suppress this with yet another checkbox?
+
+TODO - but maybe no need
+
+== Performance
+=== Data - save to external file on input
+
+TODO
+
+=== Output compressed files
+TODO
+
+=== Don't delete tabs - re-use them
+DONE
+
+=== Rebuild graphs without destroying tabs
+DONE
+
+== Change some keys and mouse clicks
+- INSERT and right-click: insert Node
+- Shift-Insert and Shift-right-click: Insert nonstandard node
+- Ctrl-Ins and Ctrl-right-click: Insert Data
+- Alt-Ins: insert graph
+DONE
+
+== Navigation in windows
+- Properties pane should be open by default DONE
+- Properties pane not large enough when selected initially DONE
+- Currently no way of getting around from one pane to another except by mouse
+-- need to fix with accelerator keys or something (SHIFT or CTRL-TAB?) DONE
+
+DONE. Navigation uses CTRL+T and CTRL+SHIFT+T to navigate around tabs. Use TAB key to get to properties, then CTRL-T or SHIFT-CTRL-T gets back to previous tab.
+
+== Replicate node
+- need new menu entry for this DONE
+- dialogue to select which parameters to be replicate DONE
+- if a parameter not in object array or pyramid, create object array or pyramid DONE
+- ask for number of elements if not already defined DONE
+- number of elements in object array must match previous or selection is an error DONE
+
+DONE.
+
+== Mouse gestures
+- dragging from object to empty screen same as delete?
+- drag from empty screen to node to insert optional parameter
+
+DONE.
+
+== Improve globals tab with graphs and attached nodes
+DONE. Maybe some more to do?
+
+== Only save file if there have been changes
+- i.e. undo list not empty
+DONE.
+
+== Shortcut keys
+[options="header"]
+|===
+|KEY|What
+|Ctrl+Alt+B|Select BT orientation
+|Ctrl+Alt+C|Show or hide connected data objects
+|Alt+C|Connect/merge
+|Alt+D|Display/edit data
+|Alt+E| Edit Menu
+|Alt+F| File Menu
+|Alt+G| Graph Menu
+|Alt+H|Help Menu
+|Ctrl+H|Help
+|Ctrl+Alt+H|Help About
+|Alt+I|Insert Menu
+|Ctrl+K|Help keystrokes
+|Alt+L|View show log window
+|Ctrl+Alt+L|Select LR orientation
+|Alt+O|Edit Options
+|Ctrl+O|Open file
+|Alt+P|View show properties
+|Ctrl+P|Save (print) current drawing
+|Ctrl+Q|Quit
+|Ctrl+R|Revert
+|Alt+R|Replicate
+|Ctrl+Alt+R|Select RL orientation
+|Ctrl+S|Save
+|Shift+Ctrl+S|Save As
+|Ctrl+T|Go to next graph tab or back to graph tab from properties
+|Ctrl+Shift+T|Go to previous graph tab or back to graph tab from properties
+|Ctrl+Alt+T|Select TB orientation
+|Alt-T|Toggle global
+|Alt+V|View Menu
+|Ctrl+W|Close
+|Ctrl+Y|Redo
+|Ctrl+Z|Undo
+|Delete|Delete or disconnect object
+|Shift+Delete|Clear All
+|Ctrl+Delete|Remove graph
+|Alt+Insert|Insert graph
+|Insert|Insert standard node
+|Shift+Insert|Insert vendor or user-defined node
+|Ctrl-Insert|Insert data object
+|PageDown|Scroll down
+|Shift+PageDown|Scroll right
+|PageUp|Scroll up
+|Shift+PageUp|Scroll left
+|Escape|Cancel selections
+|Right, Left, Up, Down|Select first object
+|Shift+Right, Shift+Left, Shift+Up, Shift+Down|Select second object
+|Menu|Shift focus to properties page
+|Ctrl++|Zoom In
+|Ctrl+-|Zoom Out
+|Ctrl+=|Zoom 100%
+|===
+
+== Mouse gestures
+.Left button
+[options="header"]
+|===
+|Down on| Up on| shift | control | alt | action
+| Nothing | Nothing | - | - | - | Deselect
+| Nothing | Nothing | {tick} | - | - | 
+| Nothing | Nothing | - | {tick} | - | 
+| Nothing | Nothing | - | - | {tick} | 
+| object | same object | - | - | - | Select
+| Data object | same data object | {tick} | - | - | Toggle local/global
+| Data object | same data object | - | - | {tick} |
+| Node object | same data object | {tick} | - | - | Node replication 
+| Node object | same data object | - | {tick} | - | Add optional parameter
+| Data object | Node object| ? | ? | ? | Add graph parameter if connected else add optional parameter
+| Node object | Data object| ? | ? | ? | Add graph parameter if connected else add optional parameter
+| Data object | Other data object | ? | ? | ? | Merge objects if possible
+| Object | Nothing| ? | ? | ? | Disconnect or delete object 
+| Nothing | node object | ? | ? | ? | Add optional parameter
+|===
+.Right button
+[options="header"]
+|===
+|Down on| Up on| shift | control | alt | action
+| Nothing | Nothing | - | - | - | Insert standard node menu
+| Nothing | Nothing | {tick} | - | - | Insert non-standard node menu
+| Nothing | Nothing | - | {tick} | - | Insert data menu
+| Nothing | Nothing | - | - | {tick} | Unassigned
+|===
+
+== Data Structures
+There are three main data structures in use, the dictionary of types, the dictionary of kernels, and the dictionary of references
+
+=== Dictionary of types
+This is held in cvxDataDefs.py, and comprises the class TypeDef, which maintains a class variable called typeDict that is indexed by type name and holds type definitions of type TypeDef.
+[horizontal]
+.Type Constants
+s_OBJECT:: for defining vx_reference object types
+s_BASE:: for defining base types (TODO do we need this?)
+s_OPAQUE:: for defining types we know nothing about
+s_INHERENT:: For defining inherent types (that we should know about)
+s_ENUM:: type of constant composed of vendor<<20, id<<12 and a constant
+s_ATTRIBUTE:: type of constant composed of vendor<<20, object type <<8 and a constant
+s_KERNEL:: type of constant composed of vendor <<20, lib<<12 and a constant (TODO do we need this?)
+s_CONSTANT:: type of constant that is just a constant
+s_STRUCT:: for defining structure types
+s_UNION:: for defining union types
+s_ARRAY:: for defining array types
+[horizontal]
+.TypeDef member variables
+objtype:: Type of object, one of the type constants above
+vendor:: vendor name, used to retrieve a value from the type vx_vendor_id_e
+id:: either the library name, a vx enumeration name or a vx type name (VX_TYPE_XXX), used to retrieve a value from either vx_library_e, vx_enum_e or vx_type_e
+size:: The size for array types
+eltype:: The element type for array types
+defs:: A dict() mapping enumeration names or constant names to values, or field names to types in the case of structures and unions
+attr:: An additional dictionary used for additional information eg in object types
+[horizontal]
+.TypeDef static functions
+add(name, objtype, vendor=None, id=None, defs=dict(), attr=dict()):: If the entry with the given name does not exist, add it.
+        Return the entry with the given name.
+getTypeVal(typeName, name, default=None):: Get an enum value or attribute for a given type
+getValueNameFromType(typeName, value, default=None):: Get the string for a given value in the given enumerated type
+getObjectTypeNameFromValue(value, default=None):: Get the string for a given type embedded in a value
+        Note that this could give misleading results if used inappropriately
+getEnumIdNameFromValue(value, default=None):: Get the name of the embedded enumeration id as given by vx_enum_e
+        Note that this could give misleading results if used inappropriately
+getEnumTypeNameFromValue(value, default=None):: Get the name of the enumeration type as given by the embedded enumeration id by
+        looking in the definition of vx_enum (rather than vx_enum_e)
+        Note that this could give misleading results if used inappropriately
+getAttributeTypeNameFromValue(value, default=None):: Get the actual enumerated type name for an attribute value.
+getConstantNameFromValue(value):: Get the string for a given value, assuming that it is in a constant enumeration
+getAttributeNameFromValue(value):: Get the string for a given value, assuming that it is in an attribute enumeration
+getEnumNameFromValue(value):: Get the string for a given value, assuming that it is in a kernel or enum enumeration
+getValueNameFromValue(value, default=None):: Get the string for a given value without knowing the type
+        Searches in the following order:
+        Constants, attributes, enums & kernels.
+getVendorIdVal(value):: Get the vendor id value from the given enum value
+getObjectTypeIdVal(value):: Get the type id from the given enum value
+getEnumIdVal(value):: Get the enum type id from the given enum value
+getLibIdVal(value):: Get the library id from the given enum value
+get(name):: Get type information for the given name
+keys(name):: Return a list of the keys for the given name
+values(name):: Return a list of the values for the given name
+items(name):: Return a list of the items for the given name
+labelsValues(name, start=None, end=None, excl=[]):: Return a list of labels and a list of values, sorted on the labels,
+        and in the range start value to end value-1 inclusive but not in the iterable excl, which may hold either labels or values
+formatToString(value):: Takes a format id and returns the associated stringas used in the XML
+formatToId(value):: Takes a format string as used in teh XML and returns the associated integer id
+addUserStruct(id):: Add a user struct called id to the vx_type_e enumeration
+[horizontal]
+.TypeDef member functions
+__init__(self, name, objtype, vendor=None, id=None, defs=dict(), attrs=dict(), size=None, eltype=None):: Initialises the type object and puts an entry in typeDict
+getVal(self, name, default=None):: Get an attribute value for this object.
+getLabel(self, value, default=None):: Return the label for the given enumerated value
+isInherent(self):: Tests if the type is inherent
+isBase(self):: Tests if the type is a base type.
+        If the type is a base type, it's defs have keys
+        which are type names and values which are enum labels
+        of vx_type_e, or None, if the type is not available there.
+isEnum(self):: Tests if the type is s_ENUM
+isAttribute(self):: Tests if the type is s_ATTRIBUTE
+isKernel(self):: Tests if the type is s_KERNEL
+isConstant(self):: Tests if the type is s_CONSTANT
+isAllEnum(self):: Tests if the type is an enumerated type, including
+        attributes, kernels, and constants
+    
+==== Other data in cvxDataDefs.py
+.standardAlias
+This is simply a dictionary mapping the openvx type enumeration names (VX_TYPE_XXX) to the actual type names (vx_xxx)
+
+.reverseAlias
+This is the opposite: it maps vx_xxx names to VX_TYPE_XXX names.
+
+=== The dictionary of kernels
+This is held in cvxKernelDefs.py, managed by the classes KernelDef and ParameterDef.
+[horizontal]
+.Constants
+kpInput:: The parameter is an input
+kpOutput:: The parameter is an output
+kpBidirectional:: The parameter is bidirectional
+kpRequired:: The parameter is required
+kpOptional:: The parameter is optional
+kpImmutable:: The parameter is supplied at node creation times and should not be changed
+kpSize:: THe parameter is supplied at node creation time and should not be changed. The application will automatically generated this, as it refers to the size of the immediately preceding parameter
+
+[horizontal]
+.ParameterDef member variables
+pname:: parameter name
+pdir:: parameter direction, one of kpInput, kpOutput or kpBidirectional
+pstate:: parameter state, one of kpRequired, kpOptional, kpImmutable or kpSize
+ptype:: parameter type - indexes the type dictionary
+preq:: parameter requirements for validation - a string to be parsed by the parameter validator
+
+[horizontal]
+.ParameterDef member functions
+__init__(self, pname, pdir, pstate, ptype, preq):: Create the parameter object
+
+[horizontal]
+.KernelDef member variables
+kname:: kernel name
+fname:: The name of the node creation function, used in code writing
+kenum:: The kernel enumeration label (TODO: may not be required)
+params:: a list of parameter definition objects
+kreq:: requirements for validation - a string to be parsed by the kernel validator
+
+[horizontal]
+.KernelDef static functions
+get(name):: Retrieve the kernel definition for the given name
+keys():: Retrieve the list of kernel names
+values():: Retrieve the list of kernel definitions
+items():: Retrieve the list of (kernel name, kernel definition) pairs
+[horizontal]
+.KernelDef member functions
+__init__(self, kname, fname, kenum, params, kreq):: Initialise a kernel object and place it in the kernel dictionary
+
+=== Dictionary of references
+This is held in cvxXML.py, together with much of the processing that reads xml, creates the dictionary and the dot graphs.
+The class Xref maintains the dictionary.
+
+[horizontal]
+.Xref member variables
+elem:: The xml element
+tagref:: The parent reference, where a data object is a child of another, or a parameter is a child of a node or a graph
+name:: The name given to the node in the dot graph, and the name attribute of the XML element, if appropriate
+graphs:: A dictionary graphs where you can find this reference
+direction:: The direction of a parameter
+repl:: If the parameter is replicated
+graphdirty:: If a graph redraw is required
+immutable:: if any of the readers make this immutable
+issize:: if this is actually an unchangeable size object (immutable parameter)
+readers:: The set of readers of this data object
+writer:: The writer of this data object
+tag:: XML tag for this object
+kdef:: Kernel definitions if tag is 'node'
+subtype:: Sub-type of object if applicable (e.g. object is scalar of type vx_enum)
+datasize:: Size of data in object if applicable (e.g. object is an array)

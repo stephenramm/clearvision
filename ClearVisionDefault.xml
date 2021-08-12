@@ -1,0 +1,3 @@
+<openvx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.khronos.org/registry/vx/schema" xsi:schemaLocation="https://www.khronos.org/registry/vx/schema openvx-1-0.xsd" references="1">
+<graph name="graph" reference="0"/>
+</openvx>
