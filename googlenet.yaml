@@ -1,0 +1,1239 @@
+﻿openvx:
+  graph:
+    node:
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '1'
+            _reference: '2'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '3'
+            _replicate_flag: 'false'
+          - _index: '0'
+            _reference: '4'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '5'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '6'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '1'
+        _bordermode: UNDEFINED
+        _name: node_0
+      - kernel: org.khronos.nn_extension.normalization_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '8'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '9'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '10'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '11'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '12'
+            _replicate_flag: 'false'
+          - _index: '5'
+            _reference: '13'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '7'
+        _bordermode: UNDEFINED
+        _name: node_1
+      - kernel: org.khronos.nn_extension.softmax_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '15'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '16'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '14'
+        _bordermode: UNDEFINED
+        _name: node_2
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '18'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '19'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '20'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '21'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '22'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '17'
+        _bordermode: UNDEFINED
+        _name: node_3
+      - kernel: org.khronos.nn_extension.activation_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '4'
+            _reference: '8'
+            _replicate_flag: 'false'
+          - _index: '0'
+            _reference: '6'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '24'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '25'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '26'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '23'
+        _bordermode: UNDEFINED
+        _name: node_4
+      - kernel: org.khronos.nn_extension.pooling_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '13'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '28'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '29'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '30'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '31'
+            _replicate_flag: 'false'
+          - _index: '5'
+            _reference: '32'
+            _replicate_flag: 'false'
+          - _index: '6'
+            _reference: '33'
+            _replicate_flag: 'false'
+          - _index: '7'
+            _reference: '18'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '27'
+        _bordermode: UNDEFINED
+        _name: node_5
+      - kernel: org.khronos.nn_extension.activation_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '22'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '35'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '36'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '37'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '38'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '34'
+        _bordermode: UNDEFINED
+        _name: node_6
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '40'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '41'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '42'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '43'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '44'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '39'
+        _bordermode: UNDEFINED
+        _name: node_7
+      - kernel: org.khronos.nn_extension.activation_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '44'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '46'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '47'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '48'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '49'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '45'
+        _bordermode: UNDEFINED
+        _name: node_8
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '51'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '52'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '53'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '54'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '55'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '50'
+        _bordermode: UNDEFINED
+        _name: node_9
+      - kernel: org.khronos.nn_extension.activation_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '55'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '57'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '58'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '59'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '60'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '56'
+        _bordermode: UNDEFINED
+        _name: node_10
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '60'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '62'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '63'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '64'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '65'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '61'
+        _bordermode: UNDEFINED
+        _name: node_11
+      - kernel: org.khronos.nn_extension.activation_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '65'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '67'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '68'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '69'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '40'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '66'
+        _bordermode: UNDEFINED
+        _name: node_12
+      - kernel: org.khronos.nn_extension.pooling_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '71'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '72'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '73'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '74'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '75'
+            _replicate_flag: 'false'
+          - _index: '5'
+            _reference: '76'
+            _replicate_flag: 'false'
+          - _index: '6'
+            _reference: '77'
+            _replicate_flag: 'false'
+          - _index: '7'
+            _reference: '51'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '70'
+        _bordermode: UNDEFINED
+        _name: node_13
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '79'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '80'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '81'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '82'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '83'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '78'
+        _bordermode: UNDEFINED
+        _name: node_14
+      - kernel: org.khronos.nn_extension.activation_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '83'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '85'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '86'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '87'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '88'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '84'
+        _bordermode: UNDEFINED
+        _name: node_15
+      - kernel: org.khronos.nn_extension.pooling_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '49'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '90'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '91'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '92'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '93'
+            _replicate_flag: 'false'
+          - _index: '5'
+            _reference: '94'
+            _replicate_flag: 'false'
+          - _index: '6'
+            _reference: '95'
+            _replicate_flag: 'false'
+          - _index: '7'
+            _reference: '79'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '89'
+        _bordermode: UNDEFINED
+        _name: node
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '1'
+            _reference: '97'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '98'
+            _replicate_flag: 'false'
+          - _index: '0'
+            _reference: '88'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '99'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '100'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '96'
+        _bordermode: UNDEFINED
+        _name: node_16
+      - kernel: org.khronos.nn_extension.activation_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '100'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '102'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '103'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '104'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '105'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '101'
+        _bordermode: UNDEFINED
+        _name: node_17
+      - kernel: org.khronos.nn_extension.convolution_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '105'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '107'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '108'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '109'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '15'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '106'
+        _bordermode: UNDEFINED
+        _name: node_18
+      - kernel: org.khronos.nn_extension.normalization_layer
+        borderconst: '#00000000'
+        parameter:
+          - _index: '0'
+            _reference: '38'
+            _replicate_flag: 'false'
+          - _index: '1'
+            _reference: '111'
+            _replicate_flag: 'false'
+          - _index: '2'
+            _reference: '112'
+            _replicate_flag: 'false'
+          - _index: '3'
+            _reference: '113'
+            _replicate_flag: 'false'
+          - _index: '4'
+            _reference: '114'
+            _replicate_flag: 'false'
+          - _index: '5'
+            _reference: '71'
+            _replicate_flag: 'false'
+        _is_replicated: 'false'
+        _reference: '110'
+        _bordermode: UNDEFINED
+        _name: node_19
+    tensor:
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_14
+          - _index: '1'
+            _size: '2'
+            _name: dimension_15
+          - _index: '2'
+            _size: '2'
+            _name: dimension_16
+        _reference: '2'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights_0
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_17
+          - _index: '1'
+            _size: '2'
+            _name: dimension_18
+          - _index: '2'
+            _size: '2'
+            _name: dimension_19
+        _reference: '3'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases_0
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_23
+          - _index: '1'
+            _size: '2'
+            _name: dimension_24
+          - _index: '2'
+            _size: '2'
+            _name: dimension_25
+        _reference: '13'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_1
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_29
+          - _index: '1'
+            _size: '2'
+            _name: dimension_30
+          - _index: '2'
+            _size: '2'
+            _name: dimension_31
+        _reference: '19'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights_1
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_32
+          - _index: '1'
+            _size: '2'
+            _name: dimension_33
+          - _index: '2'
+            _size: '2'
+            _name: dimension_34
+        _reference: '20'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases_1
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_35
+          - _index: '1'
+            _size: '2'
+            _name: dimension_36
+          - _index: '2'
+            _size: '2'
+            _name: dimension_37
+        _reference: '22'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_3
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_38
+          - _index: '1'
+            _size: '2'
+            _name: dimension_39
+          - _index: '2'
+            _size: '2'
+            _name: dimension_40
+        _reference: '8'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_4
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_41
+          - _index: '1'
+            _size: '2'
+            _name: dimension_42
+          - _index: '2'
+            _size: '2'
+            _name: dimension_43
+        _reference: '6'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_5
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_50
+          - _index: '1'
+            _size: '2'
+            _name: dimension_51
+          - _index: '2'
+            _size: '2'
+            _name: dimension_52
+        _reference: '18'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_0
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_26
+          - _index: '1'
+            _size: '2'
+            _name: dimension_27
+          - _index: '2'
+            _size: '2'
+            _name: dimension_28
+        _reference: '38'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_2
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_53
+          - _index: '1'
+            _size: '2'
+            _name: dimension_54
+          - _index: '2'
+            _size: '2'
+            _name: dimension_55
+        _reference: '41'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights_2
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_56
+          - _index: '1'
+            _size: '2'
+            _name: dimension_57
+          - _index: '2'
+            _size: '2'
+            _name: dimension_58
+        _reference: '42'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases_2
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_59
+          - _index: '1'
+            _size: '2'
+            _name: dimension_60
+          - _index: '2'
+            _size: '2'
+            _name: dimension_61
+        _reference: '44'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_7
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_65
+          - _index: '1'
+            _size: '2'
+            _name: dimension_66
+          - _index: '2'
+            _size: '2'
+            _name: dimension_67
+        _reference: '49'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_8
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_68
+          - _index: '1'
+            _size: '2'
+            _name: dimension_69
+          - _index: '2'
+            _size: '2'
+            _name: dimension_70
+        _reference: '52'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights_3
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_71
+          - _index: '1'
+            _size: '2'
+            _name: dimension_72
+          - _index: '2'
+            _size: '2'
+            _name: dimension_73
+        _reference: '53'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases_3
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_74
+          - _index: '1'
+            _size: '2'
+            _name: dimension_75
+          - _index: '2'
+            _size: '2'
+            _name: dimension_76
+        _reference: '55'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_9
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_80
+          - _index: '1'
+            _size: '2'
+            _name: dimension_81
+          - _index: '2'
+            _size: '2'
+            _name: dimension_82
+        _reference: '60'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_10
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_83
+          - _index: '1'
+            _size: '2'
+            _name: dimension_84
+          - _index: '2'
+            _size: '2'
+            _name: dimension_85
+        _reference: '62'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights_4
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_86
+          - _index: '1'
+            _size: '2'
+            _name: dimension_87
+          - _index: '2'
+            _size: '2'
+            _name: dimension_88
+        _reference: '63'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases_4
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_89
+          - _index: '1'
+            _size: '2'
+            _name: dimension_90
+          - _index: '2'
+            _size: '2'
+            _name: dimension_91
+        _reference: '65'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_11
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_95
+          - _index: '1'
+            _size: '2'
+            _name: dimension_96
+          - _index: '2'
+            _size: '2'
+            _name: dimension_97
+        _reference: '40'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_12
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_107
+          - _index: '1'
+            _size: '2'
+            _name: dimension_108
+          - _index: '2'
+            _size: '2'
+            _name: dimension_109
+        _reference: '80'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights_5
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_110
+          - _index: '1'
+            _size: '2'
+            _name: dimension_111
+          - _index: '2'
+            _size: '2'
+            _name: dimension_112
+        _reference: '81'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases_5
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_113
+          - _index: '1'
+            _size: '2'
+            _name: dimension_114
+          - _index: '2'
+            _size: '2'
+            _name: dimension_115
+        _reference: '83'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_14
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_119
+          - _index: '1'
+            _size: '2'
+            _name: dimension_120
+          - _index: '2'
+            _size: '2'
+            _name: dimension_121
+        _reference: '88'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_15
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_2
+          - _index: '1'
+            _size: '2'
+            _name: dimension_3
+          - _index: '2'
+            _size: '2'
+            _name: dimension_4
+        _reference: '79'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_5
+          - _index: '1'
+            _size: '2'
+            _name: dimension_6
+          - _index: '2'
+            _size: '2'
+            _name: dimension_7
+        _reference: '97'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_8
+          - _index: '1'
+            _size: '2'
+            _name: dimension_9
+          - _index: '2'
+            _size: '2'
+            _name: dimension_10
+        _reference: '98'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_92
+          - _index: '1'
+            _size: '2'
+            _name: dimension_93
+          - _index: '2'
+            _size: '2'
+            _name: dimension_94
+        _reference: '105'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_17
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_77
+          - _index: '1'
+            _size: '2'
+            _name: dimension_78
+          - _index: '2'
+            _size: '2'
+            _name: dimension_79
+        _reference: '107'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: weights_6
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_98
+          - _index: '1'
+            _size: '2'
+            _name: dimension_99
+          - _index: '2'
+            _size: '2'
+            _name: dimension_100
+        _reference: '108'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: biases_6
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_104
+          - _index: '1'
+            _size: '2'
+            _name: dimension_105
+          - _index: '2'
+            _size: '2'
+            _name: dimension_106
+        _reference: '15'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_18
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_116
+          - _index: '1'
+            _size: '2'
+            _name: dimension_117
+          - _index: '2'
+            _size: '2'
+            _name: dimension_118
+        _reference: '100'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_19
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_20
+          - _index: '1'
+            _size: '2'
+            _name: dimension_21
+          - _index: '2'
+            _size: '2'
+            _name: dimension_22
+        _reference: '51'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_16
+      - dimension:
+          - _index: '0'
+            _size: '2'
+            _name: dimension_62
+          - _index: '1'
+            _size: '2'
+            _name: dimension_63
+          - _index: '2'
+            _size: '2'
+            _name: dimension_64
+        _reference: '71'
+        _fixed_point_position: '0'
+        _data_type: VX_TYPE_UINT8
+        _number_of_dims: '3'
+        _name: outputs_20
+    scalar:
+      - _reference: '10'
+        _elemType: VX_TYPE_SIZE
+        _name: normalization_size
+      - _reference: '112'
+        _elemType: VX_TYPE_SIZE
+        _name: normalization_size_0
+    _name: Googlenet
+    _reference: '0'
+  scalar:
+    - enum: ''
+      _reference: '9'
+      _elemType: VX_TYPE_ENUM
+      _name: type
+    - _reference: '11'
+      _elemType: VX_TYPE_FLOAT32
+      _name: alpha
+    - _reference: '12'
+      _elemType: VX_TYPE_FLOAT32
+      _name: beta
+    - _reference: '21'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params_0
+    - _reference: '5'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params
+    - enum: ''
+      _reference: '24'
+      _elemType: VX_TYPE_ENUM
+      _name: function
+    - _reference: '25'
+      _elemType: VX_TYPE_FLOAT32
+      _name: a
+    - _reference: '26'
+      _elemType: VX_TYPE_FLOAT32
+      _name: b
+    - _reference: '28'
+      _elemType: VX_TYPE_ENUM
+      _name: pooling_type
+    - _reference: '29'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_size_x
+    - _reference: '30'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_size_y
+    - _reference: '31'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_padding_x
+    - _reference: '32'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_padding_y
+    - _reference: '33'
+      _elemType: VX_TYPE_ENUM
+      _name: rounding
+    - _reference: '35'
+      _elemType: VX_TYPE_ENUM
+      _name: function_0
+    - _reference: '36'
+      _elemType: VX_TYPE_FLOAT32
+      _name: a_0
+    - _reference: '37'
+      _elemType: VX_TYPE_FLOAT32
+      _name: b_0
+    - _reference: '43'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params_1
+    - _reference: '46'
+      _elemType: VX_TYPE_ENUM
+      _name: function_1
+    - _reference: '47'
+      _elemType: VX_TYPE_FLOAT32
+      _name: a_1
+    - _reference: '48'
+      _elemType: VX_TYPE_FLOAT32
+      _name: b_1
+    - _reference: '54'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params_2
+    - _reference: '57'
+      _elemType: VX_TYPE_ENUM
+      _name: function_2
+    - _reference: '58'
+      _elemType: VX_TYPE_FLOAT32
+      _name: a_2
+    - _reference: '59'
+      _elemType: VX_TYPE_FLOAT32
+      _name: b_2
+    - _reference: '64'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params_3
+    - enum: ''
+      _reference: '67'
+      _elemType: VX_TYPE_ENUM
+      _name: function_3
+    - float32: ''
+      _reference: '68'
+      _elemType: VX_TYPE_FLOAT32
+      _name: a_3
+    - float32: ''
+      _reference: '69'
+      _elemType: VX_TYPE_FLOAT32
+      _name: b_3
+    - _reference: '82'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params_4
+    - _reference: '85'
+      _elemType: VX_TYPE_ENUM
+      _name: function_4
+    - _reference: '86'
+      _elemType: VX_TYPE_FLOAT32
+      _name: a_4
+    - _reference: '87'
+      _elemType: VX_TYPE_FLOAT32
+      _name: b_4
+    - _reference: '90'
+      _elemType: VX_TYPE_ENUM
+      _name: pooling_type_1
+    - _reference: '91'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_size_x_1
+    - _reference: '92'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_size_y_1
+    - _reference: '93'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_padding_x_1
+    - _reference: '94'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_padding_y_1
+    - _reference: '95'
+      _elemType: VX_TYPE_ENUM
+      _name: rounding_1
+    - _reference: '102'
+      _elemType: VX_TYPE_ENUM
+      _name: function_5
+    - _reference: '103'
+      _elemType: VX_TYPE_FLOAT32
+      _name: a_5
+    - _reference: '104'
+      _elemType: VX_TYPE_FLOAT32
+      _name: b_5
+    - _reference: '109'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params_6
+    - _reference: '99'
+      _elemType: VX_TYPE_NN_CONVOLUTION_PARAMS
+      _name: convolution_params_5
+    - _reference: '72'
+      _elemType: VX_TYPE_ENUM
+      _name: pooling_type_0
+    - _reference: '73'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_size_x_0
+    - _reference: '74'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_size_y_0
+    - _reference: '75'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_padding_x_0
+    - _reference: '76'
+      _elemType: VX_TYPE_SIZE
+      _name: pooling_padding_y_0
+    - _reference: '77'
+      _elemType: VX_TYPE_ENUM
+      _name: rounding_0
+    - _reference: '111'
+      _elemType: VX_TYPE_ENUM
+      _name: type_0
+    - _reference: '113'
+      _elemType: VX_TYPE_FLOAT32
+      _name: alpha_0
+    - _reference: '114'
+      _elemType: VX_TYPE_FLOAT32
+      _name: beta_0
+  tensor:
+    - dimension:
+        - _index: '0'
+          _size: '2'
+          _name: dimension_11
+        - _index: '1'
+          _size: '2'
+          _name: dimension_12
+        - _index: '2'
+          _size: '2'
+          _name: dimension_13
+      _reference: '4'
+      _fixed_point_position: '0'
+      _data_type: VX_TYPE_UINT8
+      _number_of_dims: '3'
+      _name: inputs_0
+    - dimension:
+        - _index: '0'
+          _size: '2'
+          _name: dimension_47
+        - _index: '1'
+          _size: '2'
+          _name: dimension_48
+        - _index: '2'
+          _size: '2'
+          _name: dimension_49
+      _reference: '16'
+      _fixed_point_position: '0'
+      _data_type: VX_TYPE_UINT8
+      _number_of_dims: '3'
+      _name: outputs_6
+  '_xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance'
+  _xmlns: 'https://www.khronos.org/registry/vx/schema'
+  '_xsi:schemaLocation': 'https://www.khronos.org/registry/vx/schema openvx-1-0.xsd'
+  _references: '115'
