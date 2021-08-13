@@ -1,6 +1,6 @@
 = ClearVision graphical design tool for vision processing
-Stephen Ramm, <steve.ramm@imgtec.com>
-V1.0,  8 June 2017
+Stephen Ramm, <stephen.v.ramm@gmail.com>
+V1.1,  13 August 2021
 :doctype: article
 :encoding: utf-8
 :lang: en
@@ -589,7 +589,7 @@ selected,ready->verify->verify_results->ready
 The type of the export is chosen in the file save dialog, by specifying the file extension.
 
 .There are four types of export:
- . 'Blob' : An OpenVX graph is built from the current representation, and then exported using the IX extension API of OpenVX. (".imgvx")
+ . 'Blob' : An OpenVX graph is built from the current representation, and then exported using the IX extension API of OpenVX. (".ixvx")
  . C: Outputs auto-generated C code that will build the graph using OpenVX library. (".c")
  . Rendered: The visual representation is saved in some format, either dot language or rendered into an image (any formats supported by graphviz library) (".dot", ".png", etc.)
  . XML: This is equivalent to Save As, but the name of the current file is not changed. (".xml")
@@ -690,7 +690,7 @@ cgraph, graph:: Graphviz libraries for C
 libxml2:: XML read, write, manipulation, available for C and for Python as lxml.
 
 == Design
-Program imports XML and builds a graph using graphviz library, annotating with vx attributes to refer back to the xml. Tables are used to describe the standard OpenVX kernels along with parameter names and any restrictions (e.g. input types, how they must match output types etc.) and any IMG proprietary extensions. If the OpenVX library is not available then certain operations (load library, load NN, load blob, verification, execution, export to blob) are not available. Custom kernels may still be inserted if full name and parameters (number, direction, type) are given.
+Program imports XML and builds a graph using graphviz library, annotating with vx attributes to refer back to the xml. Tables are used to describe the standard OpenVX kernels along with parameter names and any restrictions (e.g. input types, how they must match output types etc.) and any proprietary extensions. If the OpenVX library is not available then certain operations (load library, load NN, load blob, verification, execution, export to blob) are not available. Custom kernels may still be inserted if full name and parameters (number, direction, type) are given.
 
 The first goal is to deliver a program that operates independently to OpenVX, importing and exporting using the OpenVX xml format and creating a graphviz graph that may be exported in a variety of formats. The xml import to graphviz representation can be based upon the sample implementation import from xml.
 
