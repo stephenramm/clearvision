@@ -12,12 +12,9 @@ V1.1,  13 August 2021
 :tick: &#10004;
 
 == Introduction
-The current proposal and specification for ClearVision is in many areas too ambitious, and in some areas lacking the features that are really needed in the first release. This document details proposed changes and some implementation ideas for how to achieve a product with minimum effort.
+This is a proposal and specification document for "ClearVision", an application to support creation and visualisation of OpenVX graphs.
 
-=== Too ambitious
-The emphasis was too much on GUI features and how graph designs could be manipulated and laid out. In a modified proposal we dispense with all this, having the graph drawing completely under the control of the design tool; no features for the user to change layout, scale, position or appearance of the graph that is being designed, so that the emphasis is purely upon functionality of the graph and not upon producing a pretty layout for documentation purposes. In may ways the features as originally proposed detract from the main aims of the tool, as well as requiring far more effort to implement. As there are available open-source libraries for graph layout and drawing (e.g. graphviz) the automatic display of graphs need not be onerous.
-We think that the idea of using the tool to develop multiple graphs, or to embed graphs as macros, are too ambitious for a 'first cut' and should be dropped; the emphasis should be on the creation of a single graph. However the graph may include imported kernels such as those created by an external NN tool.
-We think that the requirement to target many operating systems in a uniform way from the outset is too restrictive. For the Vision SDK we are targeting only Linux and the graphical design tool should do this also.
+There should be little emphasis on GUI features and how graph designs can be manipulated and laid out. The graph is drawn completely under the control of the design tool; little or no features for the user to change layout, position or appearance of the graph that is being designed, so that the emphasis is purely upon functionality of the graph and not upon producing a pretty layout for documentation purposes. This is to not detract from the main aims of the tool, as well as requiring less effort to implement. As there are available open-source libraries for graph layout and drawing (e.g. graphviz) the automatic display of graphs need not be onerous. The initial emphasis is on the creation of a single graph. However the graph may include imported kernels such as those created by an external NN tool.
 
 === Features missing
  * Graph execution
@@ -28,20 +25,21 @@ We think that the requirement to target many operating systems in a uniform way 
 == Implementation and design goals
 
 === Implementation language
-Previously we had specified Python as the implementation language, as this was a good cross-platform language with many features that could ease the development of a high-level tool. If, since we reduce the scope considerably and place more reliance upon external libraries for graph manipulation, we can also specify C or C++ as an implementation language. This would also mean that we have more available resource to tackle the project.
+Python
 
 === GUI tool
-The tool should still be GUI-based, or we are losing the main thrust of the idea. However, the use of the mouse for moving and modifying individual graph elements will not be necessary - at most the mouse will be used to select nodes and visible data objects, and the graph will be drawn with an automatic layout. At most the user will be able to select from a pallette of options.
+The tool should be GUI-based, or we are losing the main thrust of the idea. However, the use of the mouse for moving and modifying individual graph elements will not be necessary - at most the mouse will be used to select nodes and visible data objects, and the graph will be drawn with an automatic layout. At most the user will be able to select from a pallette of options.
 
-We will still need a library such as wx ot gtk to provide windowing features.
+We need a library such as wx ot gtk to provide windowing features.
 
 === Use an available format for storing the graph model
 
-In the previous specification we had suggested an XML format to describe the model, which was essentially the OpenVX format annotated with drawing information. This however has the disadvantage that the result cannot be read as a valid XML file by OpenVX, and so the XML library is needed separately to load the graph design image. If there is no need to store drawing information, then the 'raw' OpenVX XML format may be used.
+If there is no need to store drawing information, then the 'raw' OpenVX XML format may be used. This is a "quick and easy" solution as XML export and import is supported by the OpenVX XML extension at least for the first couple of versions.
 
-Using the dot language to describe a graph has the advantage that even if additional attributes are added to describe OpenVX features, available graph drawing libraries will still be able to interpret and use the data to draw the graphs, and the APIs may also be used to extract the specific OpenVX attributes.
+However, the XML extension ihas not been officially kept up-to-date for OpenVX 1.3, plus the format is not human-readable and is very wasteful.
+YAML would be preffered, and this should be a thrust of change - pyyaml could help?
 
-A decision then has to be made as to whether the external format is some form of annotated (with extra attributes for OpenVX) dot language format, or straight XML as per the OpenVX specification - in the latter case, it will have to be brought up-to-date for OpenVX 1.2. For simplicity and a general unified experience, the XML format is preferred, and the graph model can be built internally from this using graphviz libraries that will allow layout and rendering to be performed.
+Using the dot language to describe a graph has the advantage that even if additional attributes are added to describe OpenVX features, available graph drawing libraries will still be able to interpret and use the data to draw the graphs, and the APIs may also be used to extract the specific OpenVX attributes. However, this limits us straight away in the choice of visualisation tool, and it should be kept separate.
 
 === Utilise available drawing tools for graphs
 Create graphs programmatically in dot language, use dot to visualize. In this realization, each graph is in fact a dot graph, and we use elements of the dot language to abstract what is needed to express OpenVX. The design tool references an OpenVX implementation only at certain points.
@@ -110,9 +108,11 @@ We can easily separate out various tasks which give rise to testable code.
  * The GUI framework of the graphical design tool may be completely separated from the OpenVX dependencies and developed largely in isolation.
  * Assuming a design which maintains both XML and graphviz representations, we can isolate tasks:
  ** Import the XML data from a file and build the internal representations
+ ** Import YAML and build internal representation
  ** Layout and render the graph to screen
  ** Layout and render the graph to a file in a chosen format
  ** Export the XML data to a file
+ ** Export YAML data to a file
  ** Generate C code to implement the model
  ** Build an OpenVX graph and verify
  ** Build an OpenVX graph, execute the graph and provide outputs and performance data
