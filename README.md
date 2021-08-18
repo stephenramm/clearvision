@@ -8,4 +8,4 @@ There's a number of issues in the code as it is - for example you can easily con
 
 This project is very much Work In Progress. The files "Revised Proposal" and "ClearVision_issues" contain a list of stuff to be done, there is some project management to be done here!
 
-N.B. The markdown documents contain graphiv pictures; you can view these in Visy=ualStudio Code using the "Graphvix Markdown Preview" extension.
+N.B. The markdown documents contain graphiv pictures; you can view these in Visual Studio Code using the "Graphvix Markdown Preview" extension.
