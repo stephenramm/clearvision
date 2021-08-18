@@ -385,7 +385,7 @@ draw_graph[label="Clear and redraw graph"]
 ready[label="Idle (ready) state"]
 selected->remove->draw_graph->ready
 }
-
+```
 
 ### Edit data operation
 This operation allows attributes and data of the selected object to be modified. The objects may be nodes or data objects. For images and tensors, data may be loaded from file.
@@ -399,7 +399,7 @@ From here image or tensor data may
 be loaded via file open dialog"]
 selected->set_data->selected
 }
-
+```
 
 ### Display data operation
 Allows data to be displayed for the selected object. Images are shown as pictures, and all attributes are also shown.
@@ -471,7 +471,7 @@ clear[label="clear command"]
 draw_graph[label="Clear graph"]
 selected,ready->clear->draw_graph->cleared
 }
-
+```
 
 ### Close operation
 Save changes in the current graph and perform a clear.
@@ -520,7 +520,7 @@ file_save[label="file save dialog"]
 selected,ready->save->file_save->error,ready
 error->ready
 }
-
+```
 
 ### Attach operation
 This will attach to a remote OpenVX implementation so that things may actually be run. Note that there are a number of issues to solve with this, apart from making a remote implementation available, notably:
@@ -655,10 +655,13 @@ ready->preferences->pref_dialog->ready
 Node replication is controlled in the node configuration dialog. Replicated nodes are shown in a different shape / style to other nodes.
 
 ## Libraries
-wx widgets:: Available for C, C++, Python. Suggested library for the GUI.
-pygraphviz:: Dot language read,write, manipulation for Python
-cgraph, graph:: Graphviz libraries for C
-libxml2:: XML read, write, manipulation, available for C and for Python as lxml.
+wx widgets: Available for C, C++, Python. Suggested library for the GUI.
+
+pygraphviz: Dot language read,write, manipulation for Python
+
+cgraph, graph: Graphviz libraries for C
+
+libxml2: XML read, write, manipulation, available for C and for Python as lxml.
 
 ## Design
 Program imports XML and builds a graph using graphviz library, annotating with vx attributes to refer back to the xml. Tables are used to describe the standard OpenVX kernels along with parameter names and any restrictions (e.g. input types, how they must match output types etc.) and any proprietary extensions. If the OpenVX library is not available then certain operations (load library, load NN, load blob, verification, execution, export to blob) are not available. Custom kernels may still be inserted if full name and parameters (number, direction, type) are given.
