@@ -574,14 +574,14 @@ DONE.
 |===
 |Down on| Up on| shift | control | alt | action
 | Nothing | Nothing | - | - | - | Deselect
-| Nothing | Nothing | {tick} | - | - | 
-| Nothing | Nothing | - | {tick} | - | 
-| Nothing | Nothing | - | - | {tick} | 
+| Nothing | Nothing | ✓ | - | - | 
+| Nothing | Nothing | - | ✓ | - | 
+| Nothing | Nothing | - | - | ✓ | 
 | object | same object | - | - | - | Select
-| Data object | same data object | {tick} | - | - | Toggle local/global
-| Data object | same data object | - | - | {tick} |
-| Node object | same data object | {tick} | - | - | Node replication 
-| Node object | same data object | - | {tick} | - | Add optional parameter
+| Data object | same data object | ✓ | - | - | Toggle local/global
+| Data object | same data object | - | - | ✓ |
+| Node object | same data object | ✓ | - | - | Node replication 
+| Node object | same data object | - | ✓ | - | Add optional parameter
 | Data object | Node object| ? | ? | ? | Add graph parameter if connected else add optional parameter
 | Node object | Data object| ? | ? | ? | Add graph parameter if connected else add optional parameter
 | Data object | Other data object | ? | ? | ? | Merge objects if possible
@@ -593,9 +593,9 @@ DONE.
 |===
 |Down on| Up on| shift | control | alt | action
 | Nothing | Nothing | - | - | - | Insert standard node menu
-| Nothing | Nothing | {tick} | - | - | Insert non-standard node menu
-| Nothing | Nothing | - | {tick} | - | Insert data menu
-| Nothing | Nothing | - | - | {tick} | Unassigned
+| Nothing | Nothing | ✓ | - | - | Insert non-standard node menu
+| Nothing | Nothing | - | ✓ | - | Insert data menu
+| Nothing | Nothing | - | - | ✓ | Unassigned
 |===
 
 == Data Structures
